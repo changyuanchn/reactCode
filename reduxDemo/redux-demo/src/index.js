@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-
 import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import Header from './Header'
 import Content from './Content'
 import './index.css'
-import { Provider } from './react-redux';
+
+// 引入官方的react-redux, 删除自己实现的createStore,connect,Provider
+// 在工程目录下使用 npm 安装 Redux 和 React-redux 模块：
+// npm install redux react-redux --save
 
 class Index extends Component{
     
@@ -31,19 +35,6 @@ const themeReducer = (state, action) =>{
         default:
           return state
     }
-}
-
-function createStore(reducer){
-    let state=null
-    const listeners = []
-    const getState = ()=> state
-    const subscribe = (listener) => listeners.push(listener)
-    const dispatch = (action) =>{
-        state = reducer(state,action)
-        listeners.forEach( (listener) => listener() )
-    }
-    dispatch({}) // initialise state
-    return {getState, dispatch, subscribe}
 }
 
 // 这里定义一下共享状态store
