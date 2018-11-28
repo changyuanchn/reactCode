@@ -1,44 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 这个主要是基于下面教程的一个代码笔记，主要是redux的部分
+http://huziketang.mangojuice.top/books/react/lesson30
 
-## Available Scripts
+### 通过一个简单的例子逐渐的说明我们为何要引入redux。
 
-In the project directory, you can run:
+> 1 利用store和context结合，使我们可以不用利用状态提升来解决问题，但是存在一个问题，就是有大量重复的代码
 
-### `npm start`
+> 2 利用高阶组件来解决重复代码问题，因此引入了connect，把context放入到connect中，把原组件变为dumb组件，connect连接dumb和context
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> 3 引入mapDispatchToProp， 原因在于connect里面需要修改的操作
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+> 4 引入Provider组件，将context从index.js里面割离
 
-### `npm test`
+### 最终业务代码完全与context割离开来，这归功于我们引入了
+> connect 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Provider
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 而这就是redux的根基
