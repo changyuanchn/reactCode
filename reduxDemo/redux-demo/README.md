@@ -17,3 +17,7 @@ http://huziketang.mangojuice.top/books/react/lesson30
 > Provider
 
 ### 而这就是redux的根基
+
+### 后面还是用了官方的react-redux来重构代码
+
+### 以及为了提高复用性，进一步根据dumb和smart将组件拆分到不同的文件夹中
