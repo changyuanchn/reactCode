@@ -1,20 +1,13 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+
 import ReactDOM from 'react-dom'
 import Header from './Header'
 import Content from './Content'
 import './index.css'
+import { Provider } from './react-redux';
 
 class Index extends Component{
-
-    // 标准写法，才能使子组件能够访问到共享状态store
-    static childContextTypes = {
-        store : PropTypes.object
-    }
-    getChildContext(){
-        return {store}
-    }
-
+    
     render(){
         return (
             <div>
@@ -56,4 +49,8 @@ function createStore(reducer){
 // 这里定义一下共享状态store
 const store = createStore(themeReducer)
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+      <Index />
+    </Provider>,
+     document.getElementById('root'));
